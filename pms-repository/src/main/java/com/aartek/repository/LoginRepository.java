@@ -22,11 +22,10 @@ public class LoginRepository {
 			return null;
 		}
 	}
-
+//this is my second commit.......
 	@SuppressWarnings("unchecked")
 	public List<UserLoginDto> checkUser(String emailId, String password) {
-
-		if (emailId != null && password != null) {
+					if (emailId != null && password != null) {
 			List<UserLoginDto> userLogin = hibernateTemplate.find("from UserLoginDto where emailId=? and password=?",
 					emailId, password);
 			if (userLogin != null) {

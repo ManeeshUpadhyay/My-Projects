@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" 
+ "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<!-- Mapping for first scenario -->
+	<definition name="baseTemplate" id="baseTemplate"
+		template="/WEB-INF/layout/baseLayout.jsp">
+		<put-attribute name="header" value="/WEB-INF/layout/header.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/layout/menu.jsp" />
+		<put-attribute name="body" value="${body}" />
+		<put-attribute name="footer" value="/WEB-INF/layout/footer.jsp" />
+	</definition>
+
+	<!-- Mapping for login Page -->
+	<definition name="login" id="login" extends="baseTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/login.jsp" />
+	</definition>
+
+	<!-- Mapping for login page status Page -->
+	<definition name="showLoginStatus" id="showLoginStatus"
+		extends="baseTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/showLoginStatus.jsp" />
+	</definition>
+
+	<!-- Mapping for Registration page -->
+	<definition name="saveRegistration" id="saveRegistration"
+		extends="baseTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/registration.jsp" />
+	</definition>
+
+	<!-- Mapping for Registration status -->
+	<definition name="showReg" id="showReg" extends="baseTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/showReg.jsp" />
+	</definition>
+
+	<!-- Mapping for Project page -->
+	<definition name="showProject" id="showProject" extends="baseTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/project.jsp" />
+	</definition>
+	<definition name="editProject" id="editProject" extends="baseTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/updateProject.jsp" />
+	</definition>
+
+
+</tiles-definitions>

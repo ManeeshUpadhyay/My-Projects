@@ -20,7 +20,7 @@ import com.aartek.validator.ProjectValidator;
 
 @Controller
 public class ProjectController {
-
+	
 	@Autowired
 	private ProjectService projectService;
 	@Autowired
@@ -62,11 +62,13 @@ public class ProjectController {
 	}
 
 	@RequestMapping(value = "/updateProject", method = RequestMethod.GET)
-	public String updateProject(@ModelAttribute("ProjectDto") ProjectDto project, HttpServletRequest request,ModelMap map) {
+	public String updateProject(@ModelAttribute("ProjectDto") ProjectDto project, HttpServletRequest request,
+			ModelMap map) {
 		System.out.println("inside controller update");
 		List<ProjectDto> list = projectRepository.getProject(project);
+		map.addAttribute("project", new ProjectDto());		
 		map.addAttribute("projectList", list);
-		map.addAttribute("project", new ProjectDto());
+		
 
 		return "editProject";
 	}
@@ -74,9 +76,10 @@ public class ProjectController {
 	@RequestMapping(value = "/saveUpdate", method = RequestMethod.POST)
 	public String getShow(@ModelAttribute("project") ProjectDto project, HttpServletRequest request) {
 		int id = Integer.parseInt(request.getParameter("cid"));
-		project.setId(id);  
+		project.setId(id);
 		projectService.updateProject(project);
 		return "redirect:/showProject.do";
 	}
 
+	
 }

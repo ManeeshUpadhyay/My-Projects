@@ -36,7 +36,8 @@
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/login.do*" />
-			<mvc:mapping path="/showLoginStatus.do*" />
+			
+			<mvc:exclude-mapping path="/showLoginStatus.do*"/>
 			<bean class="com.aartek.interceptor.LoginInterceptor"></bean>
 		</mvc:interceptor>
 

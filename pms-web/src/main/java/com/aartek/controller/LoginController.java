@@ -23,6 +23,8 @@ public class LoginController {
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String showLogin(Map<String, Object> map) {
+		// BasicConfigurator.configure();
+
 		map.put("UserLoginDto", new UserLoginDto());
 		System.out.println("Inside login Controller");
 
@@ -42,5 +44,4 @@ public class LoginController {
 		return "showLoginStatus";
 
 	}
-
 }

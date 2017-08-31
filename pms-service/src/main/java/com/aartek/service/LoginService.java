@@ -1,35 +1,31 @@
 package com.aartek.service;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.aartek.model.UserLoginDto;
-import com.aartek.repository.LoginRepository;
+import com.aartek.model.RegistrationDto;
+import com.aartek.repository.LoginRepo;
 
 @Service
 public class LoginService {
 
 	@Autowired
-	private LoginRepository loginRepository;
+	private LoginRepo loginRepo;
 
-	public UserLoginDto saveUser(UserLoginDto login) {
-		if (login != null) {
-			loginRepository.saveUser(login);
-			return login;
+/*	public String userLogin(RegistrationDto reg) {
+
+		//String s = loginRepo.userLogin(reg.getEmailId(), reg.getPassword());
+		System.out.println("inside service after repo="+s);
+		
+		return s;
+	}*/
+
+	public boolean checkEmail(String email) {
+		boolean result = loginRepo.checkEmail(email);
+		if (result == true) {
+			return true;
 		} else {
-			return null;
-		}
-
-	}
-
-	public UserLoginDto checkUser(UserLoginDto user) {
-		List<UserLoginDto> userList = loginRepository.checkUser(user.getEmailId(), user.getPassword());
-		if (userList != null && !userList.isEmpty()) {
-			return userList.get(0);
-		} else {
-			return null;
+			return false;
 		}
 	}
 }

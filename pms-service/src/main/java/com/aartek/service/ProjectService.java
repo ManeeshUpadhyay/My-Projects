@@ -26,6 +26,7 @@ public class ProjectService {
 
 	public List<ProjectDto> projectList() {
 		List<ProjectDto> list = projectRepository.getProjectList();
+		
 		return list;
 	}
 

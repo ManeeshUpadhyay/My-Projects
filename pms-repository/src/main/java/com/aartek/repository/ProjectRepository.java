@@ -16,7 +16,7 @@ public class ProjectRepository {
 
 	public ProjectDto saveProject(ProjectDto project) {
 		if (project != null) {
-			hibernateTemplate.saveOrUpdate(project);
+			hibernateTemplate.save(project);
 			return project;
 		} else {
 			return null;

@@ -11,15 +11,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.aartek.model.RegistrationDto;
 import com.aartek.service.RegisterService;
-import com.aartek.validator.RegistrationValidator;
+//import com.aartek.validator.RegistrationValidator;
 
 @Controller
 public class RegisterController {
 
 	@Autowired
 	private RegisterService registerService;
-	@Autowired
-	private RegistrationValidator registrationValidator;
+	/*
+	 * @Autowired private RegistrationValidator registrationValidator;
+	 */
 
 	@RequestMapping(value = "/saveRegistration", method = RequestMethod.GET)
 	public String showRegistration(Map<String, Object> map) {
@@ -31,12 +32,14 @@ public class RegisterController {
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String checkRegistration(@ModelAttribute("RegistrationDto") RegistrationDto reg, BindingResult result) {
 
+		/*
+		 * //registrationValidator.validate(reg, result); if
+		 * (result.hasErrors()) { return "saveRegistration"; }
+		 */
+		System.out.println(reg);
+		
 		registerService.registerService(reg);
-		registrationValidator.validate(reg, result);
-		if (result.hasErrors()) {
-			return "saveRegistration";
-		} else {
-			return "showReg";
-		}
+
+		return "showReg";
 	}
 }

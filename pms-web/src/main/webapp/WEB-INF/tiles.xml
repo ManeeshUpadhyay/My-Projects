@@ -41,5 +41,8 @@
 		<put-attribute name="body" value="/WEB-INF/jsp/updateProject.jsp" />
 	</definition>
 
+	<definition name="company" id="company" extends="baseTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/company.jsp" />
+	</definition>
 
 </tiles-definitions>

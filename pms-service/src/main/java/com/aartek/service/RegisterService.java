@@ -11,13 +11,15 @@ public class RegisterService {
 
 	@Autowired
 	private RegisterRepository registerRepository;
-	
+
 	public RegistrationDto registerService(RegistrationDto reg) {
 		
-		System.out.println("inside register service method");
-		System.out.println(reg.getFirstName()+", "+reg.getLastName());
-		//registerRepository.registerRepo(reg);
-		//registerRepository.saveRegister(reg);
-		return reg;
+		if (reg != null) {
+			registerRepository.saveRegister(reg);
+			
+			return reg;
+		} else {
+			return null;
+		}
 	}
 }

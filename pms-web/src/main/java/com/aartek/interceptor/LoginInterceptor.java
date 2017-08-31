@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class LoginInterceptor implements HandlerInterceptor {
 
 	private static Logger logger=Logger.getLogger(LoginInterceptor.class);
+	
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object arg2) throws Exception {
 		System.out.println("LoginInterceptor prHandle method () - 1");
 		//UserLoginDto userLogin = (UserLoginDto) request.getSession().getAttribute("login");
@@ -20,8 +21,17 @@ public class LoginInterceptor implements HandlerInterceptor {
 		logger.info("This is info");
 		logger.warn("This is Warning");
 		logger.error("This is error");
-		return true;
-
+		
+		String s=(String)request.getSession().getAttribute("emailId");
+		if(s!=null) {
+			
+			return true;
+		}else {
+			System.out.println("else inter ");
+			// response.sendRedirect("login.do");
+			 return true;
+		}
+		
 	}
 
 	
@@ -38,4 +48,5 @@ public class LoginInterceptor implements HandlerInterceptor {
 		System.out.println("LoginInterceptor afterCompletion () - 1");
 	}
 
+	
 }

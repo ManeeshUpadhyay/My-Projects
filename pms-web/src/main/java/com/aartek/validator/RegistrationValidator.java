@@ -1,4 +1,4 @@
-package com.aartek.validator;
+/*package com.aartek.validator;
 
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
@@ -44,3 +44,4 @@ public class RegistrationValidator implements Validator {
 	}
 
 }
+*/

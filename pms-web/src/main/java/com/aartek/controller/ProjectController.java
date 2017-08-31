@@ -49,7 +49,7 @@ public class ProjectController {
 		} else {
 
 			projectService.saveProject(project);
-
+            System.out.println(project.getProjectName());
 			return "redirect:/showProject.do";
 		}
 	}
